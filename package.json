@@ -1,7 +1,7 @@
 {
     "name": "shangcloud-sdk",
-    "version": "1.0.2",
-    "description": "ShangCloud OAuth 2.0 SDK for Node.js",
+    "version": "0.0.0-development",
+    "description": "ShangCloud SDK for Node.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "keywords": [
@@ -9,7 +9,7 @@
         "oauth",
         "sdk"
     ],
-    "author": "YearnStudio Horizon",
+    "author": "Yearnstudio Horizon",
     "license": "MIT",
     "engines": {
         "node": ">=14.0.0"
@@ -28,5 +28,9 @@
     "scripts": {
         "build": "tsup",
         "dev": "tsup --watch"
+    },
+    "publishConfig": {
+        "access": "public",
+        "provenance": true
     }
 }
