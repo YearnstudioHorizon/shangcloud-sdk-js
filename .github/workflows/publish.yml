@@ -28,7 +28,9 @@ jobs:
       # token exchange when @semantic-release/npm runs `npm publish`.
       - run: npm install -g npm@latest
       - run: pnpm install
+      - run: pnpm build
       - run: pnpm exec semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # No NPM_TOKEN: authentication happens via OIDC trusted publishing.
+          NPM_CONFIG_PROVENANCE: true
