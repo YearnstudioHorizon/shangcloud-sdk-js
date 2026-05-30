@@ -1,29 +1,33 @@
 {
     "name": "shangcloud-sdk",
-    "version": "1.0.2",
-    "description": "ShangCloud OAuth 2.0 SDK for Node.js",
-    "main": "index.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/YearnstudioHorizon/shangcloud-sdk-js.git"
-    },
+    "version": "0.0.0-development",
+    "description": "ShangCloud SDK for Node.js",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "keywords": [
         "shangcloud",
         "oauth",
         "sdk"
     ],
-    "author": "YearnStudio Horizon",
+    "author": "Yearnstudio Horizon",
     "license": "MIT",
     "engines": {
         "node": ">=14.0.0"
     },
     "packageManager": "pnpm@10.28.2",
     "devDependencies": {
-        "semantic-release": "^24.0.0",
-        "@semantic-release/commit-analyzer": "^13.0.0",
-        "@semantic-release/release-notes-generator": "^14.0.0",
+        "@semantic-release/commit-analyzer": "^13.0.1",
+        "@semantic-release/github": "^11.0.6",
         "@semantic-release/npm": "^13.1.5",
-        "@semantic-release/github": "^10.0.0"
+        "@semantic-release/release-notes-generator": "^14.1.1",
+        "@types/node": "^25.6.0",
+        "semantic-release": "^24.2.9",
+        "tsup": "^8.5.1",
+        "typescript": "^5.9.3"
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch"
     },
     "publishConfig": {
         "access": "public",
