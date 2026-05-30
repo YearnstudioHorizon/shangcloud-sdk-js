@@ -4,6 +4,13 @@
     "description": "ShangCloud SDK for Node.js",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YearnstudioHorizon/shangcloud-sdk-js.git"
+    },
     "keywords": [
         "shangcloud",
         "oauth",
