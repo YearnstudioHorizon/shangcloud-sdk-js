@@ -19,10 +19,16 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # @semantic-release/npm@13 requires Node ^22.14 || >=24.10.
+          node-version: 22
       - uses: pnpm/action-setup@v3
+      # npm trusted publishing (OIDC) needs the npm CLI >= 11.5.1, newer than the
+      # npm bundled with Node 22. The npm CLI performs the OIDC token exchange when
+      # @semantic-release/npm runs `npm publish`.
+      - run: npm install -g npm@latest
       - run: pnpm install
       - run: pnpm exec semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # No NPM_TOKEN: authentication is via OIDC trusted publishing.
+          NPM_CONFIG_PROVENANCE: true

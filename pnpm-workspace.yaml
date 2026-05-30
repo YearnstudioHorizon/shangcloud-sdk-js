@@ -1,0 +1,6 @@
+# semantic-release@24 bundles its own @semantic-release/npm@12 (no OIDC support).
+# semantic-release resolves plugins from its own node_modules first, so without
+# this override it would load v12 and trusted publishing (OIDC) never runs.
+# Force every copy to v13, which performs the npm OIDC token exchange.
+overrides:
+  "@semantic-release/npm": 13.1.5
