@@ -3,6 +3,10 @@
     "version": "1.0.2",
     "description": "ShangCloud OAuth 2.0 SDK for Node.js",
     "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/YearnstudioHorizon/shangcloud-sdk-js.git"
+    },
     "keywords": [
         "shangcloud",
         "oauth",
