@@ -108,4 +108,19 @@ export class Client {
             body: JSON.stringify(body),
         });
     }
+
+    async mmoRequest<T>(path: string, body: unknown, accessToken: string, tokenType: string, roomId?: string, protocol?: string): Promise<T> {
+        const headers: Record<string, string> = {
+            'Content-Type': 'application/json',
+            Authorization: `${tokenType} ${accessToken}`,
+        };
+        if (roomId) headers['X-MMO-Room'] = roomId;
+        if (protocol) headers['X-MMO-Protoctl'] = protocol;
+        return httpRequest<T>({
+            url: `${this.baseUrl}${path}`,
+            method: 'POST',
+            headers,
+            body: JSON.stringify(body),
+        });
+    }
 }
