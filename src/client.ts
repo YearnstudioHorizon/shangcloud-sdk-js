@@ -32,6 +32,14 @@ export class Client {
         this.scope = scope;
     }
 
+    appendScope(scope: string) {
+        const scopes = this.scope.split(' ').filter(Boolean);
+        if (!scopes.includes(scope)) {
+            scopes.push(scope);
+        }
+        this.scope = scopes.join(' ');
+    }
+
     private generateAuthorizeHeader() {
         return Buffer.from(`${this.clientId}:${this.clientSecret}`).toString('base64');
     }

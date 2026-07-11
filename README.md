@@ -76,6 +76,14 @@ client.baseUrl = 'https://api.yearnstudio.cn';
 client.setScope('user:basic mmo');
 ```
 
+### `client.appendScope(scope)`
+
+向当前 OAuth 请求的 `scope` 中追加权限，例如需要添加 MMO 权限时，可直接追加 `mmo`。如果该权限已经存在，则不会重复添加。
+
+```javascript
+client.appendScope('mmo');
+```
+
 ### `client.generateOAuthUrl() -> string`
 
 生成授权跳转 URL，内部随机生成 state 并写入 `kvStorage`，用于后续回调校验。
