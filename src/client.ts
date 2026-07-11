@@ -28,6 +28,10 @@ export class Client {
         this.clientSecret = clientSecret;
     }
 
+    setScope(scope: string) {
+        this.scope = scope;
+    }
+
     private generateAuthorizeHeader() {
         return Buffer.from(`${this.clientId}:${this.clientSecret}`).toString('base64');
     }

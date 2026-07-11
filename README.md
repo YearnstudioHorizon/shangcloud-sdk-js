@@ -64,7 +64,7 @@ const client = Client.initClient('client-id', 'client-secret', 'https://example.
 const client = new Client('client-id', 'client-secret', 'https://example.com/callback');
 
 // 覆盖默认值
-client.scope   = 'user:basic';
+client.setScope('user:basic mmo');
 client.baseUrl = 'https://api.yearnstudio.cn';
 ```
 
