@@ -56,7 +56,7 @@ app.listen(8080);
 
 ### `Client.initClient(clientId, clientSecret, redirectUri)`
 
-创建 SDK 客户端。默认 `scope` 为 `user:basic`，`baseUrl` 为 `https://api.yearnstudio.cn`，并使用内置的内存 KV 作为 state 存储。如需自定义，可在返回的实例上直接赋值。
+创建 SDK 客户端。默认 `scope` 为 `user:basic`，`baseUrl` 为 `https://api.yearnstudio.cn`，并使用内置的内存 KV 作为 state 存储。如需自定义，可在返回的实例上直接赋值。如果需要调用 MMO 联机等功能，需要使用 `setScope` 方法来设置正确的 `scope` (例如包含 `mmo`)。
 
 ```javascript
 const client = Client.initClient('client-id', 'client-secret', 'https://example.com/callback');
@@ -64,8 +64,24 @@ const client = Client.initClient('client-id', 'client-secret', 'https://example.
 const client = new Client('client-id', 'client-secret', 'https://example.com/callback');
 
 // 覆盖默认值
-client.scope   = 'user:basic';
+client.setScope('user:basic mmo');
 client.baseUrl = 'https://api.yearnstudio.cn';
+```
+
+### `client.setScope(scope)`
+
+自定义 OAuth 请求的 `scope`，例如需要 MMO 权限时可设置为 `user:basic mmo`。
+
+```javascript
+client.setScope('user:basic mmo');
+```
+
+### `client.appendScope(scope)`
+
+向当前 OAuth 请求的 `scope` 中追加权限，例如需要添加 MMO 权限时，可直接追加 `mmo`。如果该权限已经存在，则不会重复添加。
+
+```javascript
+client.appendScope('mmo');
 ```
 
 ### `client.generateOAuthUrl() -> string`
